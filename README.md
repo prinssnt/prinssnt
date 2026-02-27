@@ -1,16 +1,29 @@
-## Hi there 👋
+<!DOCTYPE html>
+<html>
 
-<!--
-**prinssnt/prinssnt** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    ILOVE U
+  </title>
+  <link rel="stylesheet" href="me.css">
+</head>
+<header>
+  <h1>
+    ARE YOU READY?
+  </h1>
+</header>
 
-Here are some ideas to get you started:
+<body>
+  <h1>FUTURE DEVELOPER </h1>
+  
+  <h4> click this</h4>
+  
+  <nav>
+    <li><a href= " cay.html">CLICK ME</a></li>
+  </nav>
+  
+</body>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+</html>
