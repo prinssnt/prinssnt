@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>open it</title>
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+  overflow: hidden;
+}
+
+.envelope-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+
+.envelope {
+  width: 100%;
+  height: 100%;
+  background: #ff4e78;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  transform-origin: top;
+  transition: transform 1s ease-in-out;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+.envelope-flap {
+  width: 100%;
+  height: 100%;
+  background: #ff6b81;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  transform-origin: top;
+  transition: transform 1s ease-in-out;
+  z-index: 2;
+}
+
+/* Pop-up content */
+.popup {
+  position: absolute;
+  width: 350px;
+  height: 400px;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.7s ease, opacity 0.7s ease;
+  z-index: 3;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* Show popup */
+.popup.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* Image */
+.popup img {
+  width: 250px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(255,75,75,0.4);
+}
+
+/* Message */
+.popup p {
+  font-size: 20px;
+  color: hotpink;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Close button */
+.popup button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #ff4e78;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.popup button:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="envelope-container" onclick="openEnvelope()">
+  <div class="envelope"></div>
+  <div class="envelope-flap"></div>
+</div>
+
+<div class="popup" id="popup">
+  <img src="pic.jpg" alt="Surprise">
+  <p>Hi Love, Iloveyousomuch💖 </p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
+<audio id="music">
+  <source src="Sinta.mp3" type="audio/mp3">
+</audio>
+
+<script>
+function openEnvelope() {
+  const flap = document.querySelector('.envelope-flap');
+  const envelope = document.querySelector('.envelope');
+  const popup = document.getElementById('popup');
+  const music = document.getElementById('music');
+
+  // Animate flap open
+  flap.style.transform = 'rotateX(-180deg)';
+  envelope.style.transform = 'translateY(-50px)';
+
+  // Delay popup for dramatic effect
+  setTimeout(() => {
+    popup.classList.add('show');
+    music.play();
+  }, 800);
+}
+
+function closePopup() {
+  const flap = document.querySelector('.envelope-flap');
+  const envelope = document.querySelector('.envelope');
+  const popup = document.getElementById('popup');
+  const music = document.getElementById('music');
+
+  popup.classList.remove('show');
+  flap.style.transform = 'rotateX(0deg)';
+  envelope.style.transform = 'translateY(0)';
+  music.pause();
+  music.currentTime = 0;
+}
+</script>
+
+</body>
+</html>
